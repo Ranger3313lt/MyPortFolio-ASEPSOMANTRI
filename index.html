@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Section 1: Menu Navigasi */
+        .menu {
+            background-color: rgba(44, 62, 80, 0.9);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .brand-cell {
+            text-align: left;
+            width: 30%;
+        }
+        
+        .nav-cell {
+            text-align: right;
+            width: 70%;
+        }
+        
+        .brand {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 0;
+        }
+
+        .brand span {
+            color: #000000;
+        }
+        
+        .nav-links {
+            display: inline-block;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 15px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #34495e;
+        }
+        
+        /* Section 2: Judul dan Gambar */
+        .header {
+            padding: 140px 30px 80px;
+            color: white;
+            position: relative;
+            background: url('./green-background-logo-with-borders.svg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 152, 219, 0.3);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .header-left {
+            width: 50%;
+            vertical-align: middle;
+            padding-right: 30px;
+        }
+        
+        .header-right {
+            width: 50%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+        
+        .header .btn {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header .btn:hover {
+            background-color: #1a252f;
+            transform: translateY(-3px);
+        }
+        
+        .header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 3px solid white;
+        }
+        
+        /* Section 3: Biodata dengan 6 Box */
+        .biodata {
+            padding: 80px 30px;
+            position: relative;
+            background: url('./green-background-logo-with-borders.svg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .biodata h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #ffffff;
+            position: relative;
+        }
+        
+        .biodata h2:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3498db;
+        }
+        
+        .biodata-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+        
+        .biodata-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .biodata-box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #3498db;
+        }
+        
+        .biodata-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .biodata-box h3 {
+            margin-bottom: 15px;
+            color: #3498db;
+            font-size: 1.3rem;
+        }
+        
+        /* Section 4: Portfolio */
+        .portfolio {
+            padding: 80px 30px;
+            position: relative;
+            background: url('./green-background-logo-with-borders.svg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .portfolio h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .portfolio h2:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3498db;
+        }
+        
+        .portfolio-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+        
+        .portfolio-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-image:after {
+            content: "Lihat Detail";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 152, 219, 0.85);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .portfolio-item:hover .portfolio-image:after {
+            opacity: 1;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+        }
+        
+        .portfolio-content h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        
+        /* Contact Form & Social Media Styles */
+        footer {
+            position: relative;
+            background: url('./green-background-logo-with-borders.svg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 80px 30px 40px;
+        }
+        
+        footer h2 {
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        footer h2:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3498db;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contact-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .contact-form td {
+            padding: 10px 0;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .contact-form button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-links {
+            flex: 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: rgba(52, 152, 219, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-links .emoji {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .copyright {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        
+        /* Responsiveness */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-cell {
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 56px;
+                background-color: rgba(44, 62, 80, 0.95);
+            }
+            
+            .nav-links.active {
+                display: block;
+            }
+            
+            .nav-links a {
+                display: block;
+                text-align: center;
+                padding: 15px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .header table, .biodata-table, .portfolio-table {
+                display: block;
+            }
+            
+            .header-left, .header-right {
+                display: block;
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            .biodata-table tr, .portfolio-table tr {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .biodata-table td, .portfolio-table td {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .contact-form {
+                margin-right: 0;
+            }
+            
+            @media screen and (min-width: 600px) {
+                .biodata-table td, .portfolio-table td {
+                    width: calc(50% - 20px);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Menu Navigasi dengan Brand di Kiri -->
+    <div class="menu">
+        <table>
+            <tr>
+                <td class="brand-cell">
+                    <a href="#header" class="brand">MyPortfolio <span>ASEP SOMANTRI</span></a>
+                </td>
+                <td class="nav-cell">
+                    <button class="menu-toggle">☰</button>
+                    <div class="nav-links">
+                        <a href="#biodata">Biodata</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Kontak</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Section 2: Judul di Kiri dan Gambar di Kanan -->
+    <div id="header" class="header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <table>
+                <tr>
+                    <td class="header-left">
+                        <h1>Selamat Datang di Website Saya</h1>
+                        <p>Perkenalkan, nama saya Asep Somantri. Saya memiliki pengalaman di bidang administrasi, pergudangan, dan penetration testing.</p> 
+                        <p>Dalam peran administrasi, saya terampil dalam mengelola dokumen dan memastikan operasi kantor berjalan lancar. Di bidang pergudangan, saya berpengalaman dalam mengoptimalkan alur kerja dan pengelolaan inventaris untuk meningkatkan efisiensi. Selain itu, saya juga memiliki keahlian dalam penetration testing, di mana saya membantu mengidentifikasi dan memperbaiki kerentanan keamanan dalam sistem IT. Saya senang bekerja di lingkungan yang dinamis dan selalu siap menghadapi tantangan baru.</p>
+                        <a href="#contact" class="btn">Hubungi Saya</a>
+                    </td>
+                    <td class="header-right">
+                        <img src="FP-fotor-bg-remover-20250412205416.png" alt="Foto Profil">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Section 3: Biodata dengan 6 Box -->
+    <div id="biodata" class="biodata">
+        <h2>Biodata Saya</h2>
+        <table class="biodata-table">
+            <tr>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Pendidikan</h3>
+                        <p>High School Social Sciences, Al-qona'ah (2009-2012). etc</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Pengalaman</h3>
+                        <p>Administrasi, Warehouse and Production</p>
+                        <p>in the Food and Beverage and Textile sectors</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Keahlian</h3>
+                        <p>HTML, CSS, JavaScript, WMS, Microsoft Office. etc</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Bahasa</h3>
+                        <p>Indonesia (Native), Inggris (Basic), Prancis (Basic)</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Hobi</h3>
+                        <p>Membaca, Olahraga, a Little Coding</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="biodata-box">
+                        <h3>Minat</h3>
+                        <p>Administrasi, Cybersecutity, Warehouse and Penentration</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Section 4: Portfolio -->
+    <div id="portfolio" class="portfolio">
+        <h2>Portfolio</h2>
+        <table class="portfolio-table">
+            <tr>
+                <td>
+                    <div class="portfolio-item">
+                        <img src="microsoft.jpg" alt="Microsoft Office">
+                        <div class="portfolio-content">
+                            <h3>Microsoft Office</h3>
+                            <p>kumpulan aplikasi produktivitas yang dirancang</p>
+                            <p>untuk membantu pengguna dalam berbagai tugas kantor</p>
+                            <p>dan pekerjaan sehari-hari.</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="portfolio-item">
+                        <img src="WMS 1.png" alt="Management">
+                        <div class="portfolio-content">
+                            <h3>Management System</h3>
+                            <p>perangkat lunak yang dirancang untuk mengoptimalkan operasi gudang</p>
+                            <p>Dan perangkat lunak akuntansi yang populer di Indonesia</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="portfolio-item">
+                        <img src="Protect 1.png" alt="Keamanan">
+                        <div class="portfolio-content">
+                            <h3>Keamanan</h3>
+                            <p>upaya melindungi informasi digital dari akses yang tidak sah</p>
+                            <p>kerusakan, atau pencurian. Intinya sederhana: memastikan data</p>
+                            <p>Anda aman dan hanya dapat diakses oleh orang yang tepat.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Footer dengan Form Kontak dan Sosial Media -->
+    <footer id="contact">
+        <h2>Hubungi Saya</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xgvavpjq" method="POST">
+                <form id="contactForm">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="name">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="message">Pesan</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit">Kirim Pesan</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/assestri3313lt" target="_blank">
+                    <span class="emoji">📷</span> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/asep-somantri-049300357" target="_blank">
+                    <span class="emoji">🌏</span> LinkedIn
+                </a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 MyPortfolio ASEP SOMANTRI. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animasi untuk biodata box
+        const biodataBoxes = document.querySelectorAll('.biodata-box');
+        biodataBoxes.forEach((box, index) => {
+            box.addEventListener('click', function() {
+                this.style.backgroundColor = getRandomColor();
+            });
+        });
+        
+        // Fungsi untuk menghasilkan warna acak
+        function getRandomColor() {
+            const colors = [
+                '#e8f5e9', '#e0f7fa', '#e8eaf6', 
+                '#fff8e1', '#fff3e0', '#fbe9e7'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mendapatkan nilai input
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Menampilkan pesan konfirmasi
+            alert(`Terima kasih ${name}! Pesan Anda telah terkirim. Kami akan menghubungi Anda melalui ${email} segera.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
